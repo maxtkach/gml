@@ -1,0 +1,204 @@
+/* ==========================================================================
+   GRAND MASTER LIGHT — Minimalist Coming Soon Theme
+   ========================================================================== */
+
+/* Variables */
+:root {
+    --bg-color: #020206;
+    --text-primary: #ffffff;
+    --primary-glow: rgba(0, 242, 254, 0.8);
+    --secondary-glow: rgba(79, 172, 254, 0.8);
+    
+    /* Font families */
+    --font-header: 'Outfit', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Interactive variables, updated via JS */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background canvas */
+#light-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Mouse Spotlight Effect */
+#spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+        circle 400px at var(--mouse-x) var(--mouse-y),
+        rgba(0, 242, 254, 0.14) 0%,
+        rgba(79, 172, 254, 0.05) 45%,
+        transparent 80%
+    );
+    transition: background 0.1s ease-out;
+}
+
+/* Stage Spotlight Beam */
+.light-beam {
+    position: fixed;
+    top: -150px;
+    left: 50%;
+    width: 900px;
+    height: 150vh;
+    background: conic-gradient(
+        from 170deg at top center,
+        transparent 0deg,
+        rgba(0, 242, 254, 0.04) 3deg,
+        rgba(255, 255, 255, 0.12) 10deg,
+        rgba(79, 172, 254, 0.04) 17deg,
+        transparent 20deg
+    );
+    transform: translateX(-50%);
+    pointer-events: none;
+    filter: blur(15px);
+    mix-blend-mode: screen;
+    z-index: 1;
+    opacity: 0.9;
+    transform-origin: top center;
+}
+
+/* Layout Wrapper */
+.wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Teaser Container */
+.teaser-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Logo styling */
+.logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    max-width: 480px;
+    width: 85vw;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.12));
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.35));
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130%;
+    height: 130%;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.09) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Coming Soon Text */
+.coming-soon-text {
+    font-family: var(--font-header);
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    padding-left: 0.35em; /* offsets the letter-spacing on the last character to center it perfectly */
+    background: linear-gradient(135deg, #ffffff 40%, #4facfe 75%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+    animation: smoothPulse 4s ease-in-out infinite;
+}
+
+@keyframes smoothPulse {
+    0%, 100% {
+        opacity: 0.85;
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.5));
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 340px;
+    }
+    
+    .coming-soon-text {
+        font-size: 1.4rem;
+        letter-spacing: 0.3em;
+        padding-left: 0.3em;
+    }
+    
+    .light-beam {
+        width: 650px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 260px;
+    }
+    
+    .coming-soon-text {
+        font-size: 1.1rem;
+        letter-spacing: 0.25em;
+        padding-left: 0.25em;
+    }
+}

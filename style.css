@@ -1,13 +1,13 @@
 /* ==========================================================================
-   GRAND MASTER LIGHT — Minimalist Coming Soon Theme
+   GRAND MASTER LIGHT — Minimalist Coming Soon Theme (Red/Crimson Edition)
    ========================================================================== */
 
 /* Variables */
 :root {
-    --bg-color: #020206;
+    --bg-color: #050103; /* Deep dark black with a hint of red */
     --text-primary: #ffffff;
-    --primary-glow: rgba(0, 242, 254, 0.8);
-    --secondary-glow: rgba(79, 172, 254, 0.8);
+    --primary-glow: rgba(255, 30, 86, 0.8);
+    --secondary-glow: rgba(255, 75, 75, 0.8);
     
     /* Font families */
     --font-header: 'Outfit', sans-serif;
@@ -59,8 +59,8 @@ html, body {
     pointer-events: none;
     background: radial-gradient(
         circle 400px at var(--mouse-x) var(--mouse-y),
-        rgba(0, 242, 254, 0.14) 0%,
-        rgba(79, 172, 254, 0.05) 45%,
+        rgba(255, 30, 86, 0.15) 0%,
+        rgba(255, 75, 75, 0.05) 45%,
         transparent 80%
     );
     transition: background 0.1s ease-out;
@@ -76,9 +76,9 @@ html, body {
     background: conic-gradient(
         from 170deg at top center,
         transparent 0deg,
-        rgba(0, 242, 254, 0.04) 3deg,
+        rgba(255, 30, 86, 0.05) 3deg,
         rgba(255, 255, 255, 0.12) 10deg,
-        rgba(79, 172, 254, 0.04) 17deg,
+        rgba(255, 75, 75, 0.05) 17deg,
         transparent 20deg
     );
     transform: translateX(-50%);
@@ -86,7 +86,7 @@ html, body {
     filter: blur(15px);
     mix-blend-mode: screen;
     z-index: 1;
-    opacity: 0.9;
+    opacity: 0.95;
     transform-origin: top center;
 }
 
@@ -125,7 +125,7 @@ html, body {
     max-width: 480px;
     width: 85vw;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.12));
+    filter: drop-shadow(0 0 20px rgba(255, 30, 86, 0.14));
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
     -webkit-user-drag: none;
@@ -133,7 +133,7 @@ html, body {
 
 .logo:hover {
     transform: scale(1.03);
-    filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.35));
+    filter: drop-shadow(0 0 35px rgba(255, 30, 86, 0.4));
 }
 
 .logo-glow {
@@ -143,7 +143,7 @@ html, body {
     transform: translate(-50%, -50%);
     width: 130%;
     height: 130%;
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.09) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 30, 86, 0.1) 0%, transparent 70%);
     z-index: -1;
     pointer-events: none;
 }
@@ -152,15 +152,12 @@ html, body {
 .coming-soon-text {
     font-family: var(--font-header);
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 2.6rem;
     text-transform: uppercase;
     letter-spacing: 0.35em;
     padding-left: 0.35em; /* offsets the letter-spacing on the last character to center it perfectly */
-    background: linear-gradient(135deg, #ffffff 40%, #4facfe 75%, #00f2fe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+    color: var(--text-primary);
+    text-shadow: 0 0 30px rgba(255, 30, 86, 0.35);
     animation: smoothPulse 4s ease-in-out infinite;
 }
 
@@ -170,7 +167,7 @@ html, body {
     }
     50% {
         opacity: 1;
-        filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.5));
+        filter: drop-shadow(0 0 15px rgba(255, 30, 86, 0.6));
     }
 }
 
@@ -181,7 +178,7 @@ html, body {
     }
     
     .coming-soon-text {
-        font-size: 1.4rem;
+        font-size: 2.0rem;
         letter-spacing: 0.3em;
         padding-left: 0.3em;
     }
@@ -197,7 +194,7 @@ html, body {
     }
     
     .coming-soon-text {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         letter-spacing: 0.25em;
         padding-left: 0.25em;
     }

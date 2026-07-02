@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GRAND MASTER LIGHT — Interactive Spotlight & Particles Script
+   GRAND MASTER LIGHT — Interactive Spotlight & Particles Script (Red Edition)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Main Animation Loop
     function animate(timestamp) {
-        // Clear canvas with a very slight trail for motion blur
-        ctx.fillStyle = 'rgba(3, 3, 8, 1)';
+        // Clear canvas with background color
+        ctx.fillStyle = 'rgba(5, 1, 3, 1)';
         ctx.fillRect(0, 0, width, height);
 
         const now = Date.now();
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const shadowY = -dy * 0.04 * strength;
             const blur = Math.max(8, 20 - dist * 0.02);
 
-            logo.style.filter = `drop-shadow(${shadowX}px ${shadowY}px ${blur}px rgba(0, 242, 254, ${0.15 + (1 - strength) * 0.15}))`;
+            logo.style.filter = `drop-shadow(${shadowX}px ${shadowY}px ${blur}px rgba(255, 30, 86, ${0.15 + (1 - strength) * 0.15}))`;
         }
 
         // 6. Draw Volumetric Light-beams & Spotlight interactions on Particles
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (totalGlow > 0) {
                 p.alpha = p.baseAlpha + (1 - p.baseAlpha) * totalGlow;
-                p.currentColor = `rgba(160, 245, 255, ${p.alpha})`;
+                p.currentColor = `rgba(255, 170, 185, ${p.alpha})`; // Warm light-red/pink glow when illuminated
                 p.currentSize = p.size * (1 + totalGlow * 1.5);
             } else {
                 p.alpha = p.baseAlpha;
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Draw a subtle glow shadow for highlighted particles
             if (totalGlow > 0.4) {
                 ctx.shadowBlur = p.currentSize * 2;
-                ctx.shadowColor = 'rgba(0, 242, 254, 0.6)';
+                ctx.shadowColor = 'rgba(255, 30, 86, 0.6)';
             } else {
                 ctx.shadowBlur = 0;
             }
